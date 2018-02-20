@@ -12,4 +12,4 @@
 
 This GAMA project contains various models to demonstrate different aspects of GAMA and some pitfalls.
 
-[models/GamaOrderOfExecution.gaml] - Demonstrates the order of execution of different parts of a GAMA model.
+[GamaOrderOfExecution](models/GamaOrderOfExecution.gaml) - Demonstrates the order of execution of different parts of a GAMA model.

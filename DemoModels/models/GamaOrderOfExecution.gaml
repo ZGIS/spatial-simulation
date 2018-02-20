@@ -1,7 +1,7 @@
 /**
-* Model:		OrderOfExecution
-* Author:		Stefan Mohr
-* Description:	This model demonstrates the order of execution of different parts of a GAMA model.
+* Model:        OrderOfExecution
+* Author:       Stefan Mohr
+* Description:  This model demonstrates the order of execution of different parts of a GAMA model.
 * 
 * TODO reflexA in SpeciesA and SpeciesB overwrites reflexA of BaseSpecies. Is there a notion of "super()" in GAMA?
 */
