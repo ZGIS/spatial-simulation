@@ -81,6 +81,11 @@ species BaseSpecies
     int variable1 <- get_int("BaseSpecies.variable1 <- 1");
     int variable2 <- get_int("BaseSpecies.variable2 <- 1");
 
+    init
+    {
+        write string(self) + ":" + "BaseSpecies.init()";
+    }
+
     /**
      * This function / action returns an int. It's a helper do be able to log initialization of species properties
      * (object variables)
@@ -96,9 +101,10 @@ species BaseSpecies
         write string(self) + ":" + "BaseSpecies.reflexA";
     }
 
-    init
-    {
-        write string(self) + ":" + "BaseSpecies.init()";
+    
+    aspect default {
+        write string(self) + ":" + "BaseSpecies.aspectDefault";
+        draw cube(1) color: #red;
     }
 }
 
@@ -123,6 +129,7 @@ species SpeciesA parent: BaseSpecies
     aspect aspectA
     {
         write string(self) + ":" + "SpeciesA.aspectA";
+        draw sphere(1) color: #blue;
     }
 
 }
@@ -150,6 +157,7 @@ species SpeciesB parent: BaseSpecies
     aspect aspectA
     {
         write string(self) + ":" + "SpeciesB.aspectA";
+        draw sphere(1) color: #blue;
     }
 }
 
@@ -190,6 +198,7 @@ experiment OrderOfExecution type: gui
         monitor "monitor 1" value: world.get_int("experiment.monitor1 <- 1") refresh: every(2 # cycles);
         monitor "monitor 2" value: world.get_int("experiment.monitor2 <- 1") refresh: every(1 # cycles);
         monitor "monitor 3" value: world.variable1 refresh: every(1 # cycles);
+        
         display name: "dummy" refresh: every(1 # cycles) type: opengl
         {
             grid GridSpeciesA lines: # black;

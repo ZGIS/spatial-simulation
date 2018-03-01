@@ -53,6 +53,7 @@ species SpeciesC parent: BaseSpecies
 
     aspect aspectA
     {
+        draw sphere(1) color: #green;
         write string(self) + ":" + "SpeciesC.aspectA";
     }
 
@@ -68,14 +69,15 @@ experiment InheritanceImportOrderOfExecution type: gui
     {
     //This compiles but crashes when run. Probably because there are two globals.
     //Also the original experiment "OrderOfExecution" does not run anymore. Or at least the monitors prevent the displayf rom being shown.
-    //THis neither works when using "simulation" instead of "world". Both version compile, but none of them runs.
+    //This neither works when using "simulation" instead of "world". Both version compile, but none of them runs.
     //        monitor "monitor 1" value: world.get_int("INHERITANCEIMPORT.experiment.monitor1 <- 1") refresh: every(2 # cycles);
-    //        monitor "monitor 2" value: world.get_string("INHERITANCEIMPORT.experiment.monitor2 <- 'got string'") refresh: every(1#cycle);
+//        monitor "monitor 2" value: world.get_string("INHERITANCEIMPORT.experiment.monitor2 <- 'got string'") refresh: every(1#cycle);
         monitor "monitor 3" value: "Fixed value!" refresh: every(1 # cycle);
         display name: "InheritanceImportDisplay" refresh: every(1 # cycles) type: opengl
         {
             grid GridSpeciesA lines: # black;
             species SpeciesC aspect: aspectA;
+            species SpeciesB;
         }
 
     }
