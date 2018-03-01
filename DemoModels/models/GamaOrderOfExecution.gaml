@@ -24,6 +24,10 @@ global
         return 1;
     }
 
+    /**
+     * This function / action returns a DEM. It's a helper do be able to log initialization of species properties
+     * (object variables)
+     */
     file get_dem (string msg)
     {
         write string(self) + ":" + msg;
@@ -51,6 +55,7 @@ global
         {
             do pause;
         }
+
     }
 
     //you should always keep you object variables together at the top, but just to demo that this is also initialized
@@ -126,6 +131,7 @@ species SpeciesB parent: BaseSpecies
 {
     int variable2 <- get_int("SpeciesB.variable2 <- 1 (THIS VAR SHADOWS THE ONE IN BaseSpecies!!!)");
     int variable3 <- get_int("SpeciesB.variable3 <- 1") update: get_int("SpeciesB.variable3 <- 1 (in update!)");
+    
     init
     {
         write string(self) + ":" + "SpeciesB.init()";
@@ -145,7 +151,6 @@ species SpeciesB parent: BaseSpecies
     {
         write string(self) + ":" + "SpeciesB.aspectA";
     }
-
 }
 
 grid GridSpeciesA file: gridA
@@ -170,23 +175,26 @@ grid GridSpeciesA file: gridA
     {
         write string(self) + ":" + "GridSpeciesA.reflexA";
     }
-
 }
 
 experiment OrderOfExecution type: gui
 {
+    string test
+    {
+        write string(self) + ": experiment.test()";
+        return "foo";
+    }
+
     output
     {
         monitor "monitor 1" value: world.get_int("experiment.monitor1 <- 1") refresh: every(2 # cycles);
         monitor "monitor 2" value: world.get_int("experiment.monitor2 <- 1") refresh: every(1 # cycles);
-        
+        monitor "monitor 3" value: world.variable1 refresh: every(1 # cycles);
         display name: "dummy" refresh: every(1 # cycles) type: opengl
         {
             grid GridSpeciesA lines: # black;
             species SpeciesA aspect: aspectA refresh: true;
             species SpeciesB aspect: aspectA refresh: true;
         }
-
     }
-
 }
