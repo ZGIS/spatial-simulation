@@ -132,40 +132,168 @@ principles themselves, i.e. their scope, their usefulness in real-world scenario
 Does the model use new, or previously developed, theory for agent traits from which system dynamics emerge (e.g.,
 ‘individual-based theory’ as described by Grimm and Railsback [2005; Grimm et al., 2005])?
 
-Answer: ... 
-Emergence. What key results or outputs of the model are modeled as emerging from the adaptive traits, or behaviors, of individuals? In other words, what model results are expected to vary in complex and perhaps unpredictable ways when particular characteristics of individuals or their environment change? Are there other results that are more tightly imposed by model rules and hence less dependent on what individuals do, and hence ‘built in’ rather than emergent results? 
-Answer: ... 
-Adaptation. What adaptive traits do the individuals have? What rules do they have for making decisions or changing behavior in response to changes in themselves or their environment? Do these traits explicitly seek to increase some measure of individual success regarding its objectives (e.g., “move to the cell providing fastest growth rate”, where growth is assumed to be an indicator of success; see the next concept)? Or do they instead simply cause individuals to reproduce observed behaviors (e.g., “go uphill 70% of the time”) that are implicitly assumed to indirectly convey success or fitness?  
-Answer: ... 
-Objectives. If adaptive traits explicitly act to increase some measure of the individual's success at meeting some objective, what exactly is that objective and how is it measured? When individuals make decisions by ranking alternatives, what criteria do they use? Some synonyms for ‘objectives’ are ‘fitness’ for organisms assumed to have adaptive traits evolved to provide reproductive success, ‘utility’ for economic reward in social models or simply ‘success criteria’. (Note that the objective of such agents as members of a team, social insects, organs—e.g., leaves—of an organism, or cells in a tissue, may not refer to themselves but to the team, colony or organism of which they are a part.) 
-Answer: ... 
-Learning. Many individuals or agents (but also organizations and institutions) change their adaptive traits over time as a consequence of their experience? If so, how?  
-Answer: ... 
-Prediction. Prediction is fundamental to successful decision-making; if an agent’s adaptive traits or learning procedures are based on estimating future consequences of decisions, how do agents predict the future conditions (either environmental or internal) they will experience? If appropriate, what internal models are agents assumed to use to estimate future conditions or consequences of their decisions? What tacit or hidden predictions are implied in these internal model assumptions? 
-Answer: ... 
-Sensing. What internal and environmental state variables are individuals assumed to sense and consider in their decisions? What state variables of which other individuals and entities can an individual perceive; for example, signals that another individual may intentionally or unintentionally send? Sensing is often assumed to be local, but can happen through networks or can even be assumed to be global (e.g., a forager on one site sensing the resource levels of all other sites it could move to). If agents sense each other through social networks, is the structure of the network imposed or emergent? Are the mechanisms by which agents obtain information modeled explicitly, or are individuals simply assumed to know these variables? 
-Answer: ... 
-Interaction. What kinds of interactions among agents are assumed? Are there direct interactions in which individuals encounter and affect others, or are interactions indirect, e.g., via competition for a mediating resource? If the interactions involve communication, how are such communications represented? 
-Answer: ... 
-Stochasticity. What processes are modeled by assuming they are random or partly random? Is stochasticity used, for example, to reproduce variability in processes for which it is unimportant to model the actual causes of the variability? Is it used to cause model events or behaviors to occur with a specified frequency? 
-Answer: ... 
-Collectives. Do the individuals form or belong to aggregations that affect, and are affected by, the individuals? Such collectives can be an important intermediate level of organization in an ABM; examples include social groups, fish schools and bird flocks, and human networks and organizations. How are collectives represented? Is a particular collective an emergent property of the individuals, such as a flock of birds that assembles as a result of individual behaviors, or is the collective simply a definition by the modeler, such as the set of individuals with certain properties, defined as a separate kind of entity with its own state variables and traits?
-Answer: ... 
-Observation. What data are collected from the ABM for testing, understanding, and analyzing it, and how and when are they collected? Are all output data freely used, or are only certain data sampled and used, to imitate what can be observed in an empirical study (“Virtual Ecologist” approach; Zurell et al., 2010)? 
-Answer: ... 
-Explanation: The ‘Design concepts’ element of the ODD protocol does not describe the model per se; i.e., it is not needed to replicate a model. However, these design concepts tend to be characteristic of ABMs, though certainly not exclusively. They may also be crucial to interpreting the output of a model, and they are not described well via traditional model description techniques such as equations and flow charts. Therefore, they are included in ODD as a kind of checklist to make sure that important model design decisions are made consciously and that readers are aware of these decisions (Railsback, 2001; Grimm and Railsback, 2005). For example, almost all ABMs include some kinds of adaptive traits, but if these traits do not use an explicit objective measure the ‘Objectives’ and perhaps ‘Prediction’ concepts are not relevant (though many ABMs include hidden or implicit predictions). Also, many ABMs do not include learning or collectives. Unused concepts can be omitted in the ODD description. 
-There might be important concepts underlying the design of an ABM that are not included in the ODD protocol. If authors feel that it is important to understand a certain new concept to understand the design of their model, they should give it a short name, clearly announce it as a design concept not included in the ODD protocol, and present it at the end of the Design concepts element.
-5. Initialization
-Questions: What is the initial state of the model world, i.e., at time t = 0 of a simulation run? In detail, how many entities of what type are there initially, and what are the exact values of their state variables (or how were they set stochastically)? Is initialization always the same, or is it allowed to vary among simulations? Are the initial values chosen arbitrarily or based on data? References to those data should be provided.
-Answer: ...
-Explanation: Model results cannot be accurately replicated unless the initial conditions are known. Different models, and different analyses using the same model, can of course depend quite differently on initial conditions. Sometimes the purpose of a model is to analyze consequences of its initial state, and other times modelers try hard to minimize the effect of initial conditions on results.
-6. Input data
-Question: Does the model use input from external sources such as data files or other models to represent processes that change over time?
-Answer: ...
-Explanation: In models of real systems, dynamics are often driven in part by a time series of environmental variables, sometimes called external forcings; for example annual rainfall in semi-arid savannas (Jeltsch et al., 1996). “Driven” means that one or more state variables or processes are affected by how these environmental variables change over time, but these environmental variables are not themselves affected by the internal variables of the model. For example, rainfall may affect the soil moisture variable of grid cells and, therefore, how the recruitment and growth of trees change. Often it makes sense to use observed time series of environmental variables so that their statistical qualities (mean, variability, temporal autocorrelation, etc.) are realistic. Alternatively, external models can be used to generate input, e.g. a rainfall time series (Eisinger and Wiegand, 2008). Obviously, to replicate an ABM, any such input has to be specified and the data or models provided, if possible. (Publication of input data for some social simulations can be constrained by confidentiality considerations.) If a model does not use external data, this element should nevertheless be included, using the statement: “The model does not use input data to represent time-varying processes.” Note that ‘Input data’ does not refer to parameter values or initial values of state variables.
-7. Submodels
-Questions: What, in detail, are the submodels that represent the processes listed in ‘Process overview and scheduling’? What are the model parameters, their dimensions, and reference values? How were submodels designed or chosen, and how were they parameterized and then tested?
-Answer: ...
-Explanation: The submodels are presented in detail and completely. The factual description of the submodel, i.e., equation(s) and algorithms, should come first and be clearly separated from additional information. From what previous model this submodel was taken or whether a new submodel was formulated, and why, can be explained. If parameterization is not discussed outside the ODD description, it can be included here. The parameter definitions, units, and values used (if relevant) should be presented in tables.
-Any description of an ABM and its submodels will seem ad hoc and lack credibility if there is no justification for why and how formulations were chosen or how new formulations were designed and tested. Because agent-based modeling is new and lacks a firm foundation of theory and established methods, we expect ODD descriptions to include appropriate levels of explanation and justification for the design decisions they illustrate, though this should not interfere with the primary aim of giving a concise and readable account of the model. Justification can be very brief in the Overview and Design concepts sections, but the complete description of submodels is likely to include references to relevant literature, as well as independent implementation, testing, calibration, and analysis of submodels. 
-ODD-based model descriptions consist of the seven elements described above; however, in most cases it will be necessary to have a simulation experiments or model analysis section following the model description (see Discussion). 
+**Answer:** ... 
+
+### Emergence
+
+What key results or outputs of the model are modeled as emerging from the adaptive traits, or behaviors,
+of individuals? In other words, what model results are expected to vary in complex and perhaps unpredictable ways when
+particular characteristics of individuals or their environment change? Are there other results that are more tightly imposed
+by model rules and hence less dependent on what individuals do, and hence ‘built in’ rather than emergent results? 
+
+**Answer:** ... 
+
+
+### Adaptation.
+
+What adaptive traits do the individuals have? What rules do they have for making decisions or changing behavior in response
+to changes in themselves or their environment? Do these traits explicitly seek to increase some measure of individual success
+regarding its objectives (e.g., “move to the cell providing fastest growth rate”, where growth is assumed to be an indicator
+of success; see the next concept)? Or do they instead simply cause individuals to reproduce observed behaviors (e.g., "go uphill
+70% of the time") that are implicitly assumed to indirectly convey success or fitness?
+
+**Answer:** ... 
+
+### Objectives.
+
+If adaptive traits explicitly act to increase some measure of the individual's success at meeting some objective, what exactly
+is that objective and how is it measured? When individuals make decisions by ranking alternatives, what criteria do they use?
+Some synonyms for ‘objectives’ are ‘fitness’ for organisms assumed to have adaptive traits evolved to provide reproductive
+success, ‘utility’ for economic reward in social models or simply ‘success criteria’. (Note that the objective of such agents
+as members of a team, social insects, organs—e.g., leaves—of an organism, or cells in a tissue, may not refer to themselves but
+to the team, colony or organism of which they are a part.)
+
+**Answer:** ... 
+
+
+### Learning.
+
+Many individuals or agents (but also organizations and institutions) change their adaptive traits over time as a consequence
+of their experience? If so, how?
+
+**Answer:** ... 
+
+### Prediction.
+
+Prediction is fundamental to successful decision-making; if an agent’s adaptive traits or learning procedures are based on
+estimating future consequences of decisions, how do agents predict the future conditions (either environmental or internal)
+they will experience? If appropriate, what internal models are agents assumed to use to estimate future conditions or consequences
+of their decisions? What tacit or hidden predictions are implied in these internal model assumptions?
+
+**Answer:** ... 
+
+### Sensing.
+
+What internal and environmental state variables are individuals assumed to sense and consider in their decisions? What
+state variables of which other individuals and entities can an individual perceive; for example, signals that another individual
+may intentionally or unintentionally send? Sensing is often assumed to be local, but can happen through networks or can even be
+assumed to be global (e.g., a forager on one site sensing the resource levels of all other sites it could move to). If agents sense
+each other through social networks, is the structure of the network imposed or emergent? Are the mechanisms by which agents obtain
+information modeled explicitly, or are individuals simply assumed to know these variables? 
+
+**Answer:** ... 
+
+### Interaction.
+
+What kinds of interactions among agents are assumed? Are there direct interactions in which individuals encounter and affect
+others, or are interactions indirect, e.g., via competition for a mediating resource? If the interactions involve communication,
+how are such communications represented?
+
+**Answer:** ... 
+
+### Stochasticity.
+
+What processes are modeled by assuming they are random or partly random? Is stochasticity used, for example, to reproduce
+variability in processes for which it is unimportant to model the actual causes of the variability? Is it used to cause model
+events or behaviors to occur with a specified frequency?
+
+**Answer:** ...
+
+Collectives. Do the individuals form or belong to aggregations that affect, and are affected by, the individuals? Such
+collectives can be an important intermediate level of organization in an ABM; examples include social groups, fish schools
+and bird flocks, and human networks and organizations. How are collectives represented? Is a particular collective an emergent
+property of the individuals, such as a flock of birds that assembles as a result of individual behaviors, or is the collective
+simply a definition by the modeler, such as the set of individuals with certain properties, defined as a separate kind of entity
+with its own state variables and traits?
+
+**Answer:** ... 
+
+### Observation
+
+What data are collected from the ABM for testing, understanding, and analyzing it, and how and when are they collected? Are all
+output data freely used, or are only certain data sampled and used, to imitate what can be observed in an empirical study ("Virtual
+Ecologist" approach; Zurell et al., 2010)?
+
+**Answer:** ...
+
+**Explanation:** The ‘Design concepts’ element of the ODD protocol does not describe the model per se; i.e., it is not needed
+to replicate a model. However, these design concepts tend to be characteristic of ABMs, though certainly not exclusively. They may
+also be crucial to interpreting the output of a model, and they are not described well via traditional model description techniques
+such as equations and flow charts. Therefore, they are included in ODD as a kind of checklist to make sure that important model
+design decisions are made consciously and that readers are aware of these decisions (Railsback, 2001; Grimm and Railsback, 2005).
+For example, almost all ABMs include some kinds of adaptive traits, but if these traits do not use an explicit objective measure
+the ‘Objectives’ and perhaps ‘Prediction’ concepts are not relevant (though many ABMs include hidden or implicit predictions). Also,
+many ABMs do not include learning or collectives. Unused concepts can be omitted in the ODD description.
+
+There might be important concepts underlying the design of an ABM that are not included in the ODD protocol. If authors feel that it
+is important to understand a certain new concept to understand the design of their model, they should give it a short name, clearly
+announce it as a design concept not included in the ODD protocol, and present it at the end of the Design concepts element.
+
+
+## 5. Initialization
+
+**Questions:** What is the initial state of the model world, i.e., at time t = 0 of a simulation run? In detail, how many entities of
+what type are there initially, and what are the exact values of their state variables (or how were they set stochastically)? Is
+initialization always the same, or is it allowed to vary among simulations? Are the initial values chosen arbitrarily or based on data?
+References to those data should be provided.
+
+**Answer:** ...
+
+**Explanation:** Model results cannot be accurately replicated unless the initial conditions are known. Different models, and different
+analyses using the same model, can of course depend quite differently on initial conditions. Sometimes the purpose of a model is to
+analyze consequences of its initial state, and other times modelers try hard to minimize the effect of initial conditions on results.
+
+
+## 6. Input data
+
+**Question:** Does the model use input from external sources such as data files or other models to represent processes that change
+over time?
+
+**Answer:** ...
+
+**Explanation:** In models of real systems, dynamics are often driven in part by a time series of environmental variables, sometimes
+called external forcings; for example annual rainfall in semi-arid savannas (Jeltsch et al., 1996). "Driven" means that one or more
+state variables or processes are affected by how these environmental variables change over time, but these environmental variables are
+not themselves affected by the internal variables of the model. For example, rainfall may affect the soil moisture variable of grid
+cells and, therefore, how the recruitment and growth of trees change. Often it makes sense to use observed time series of environmental
+variables so that their statistical qualities (mean, variability, temporal autocorrelation, etc.) are realistic. Alternatively, external
+models can be used to generate input, e.g. a rainfall time series (Eisinger and Wiegand, 2008). Obviously, to replicate an ABM, any such
+input has to be specified and the data or models provided, if possible. (Publication of input data for some social simulations can be
+constrained by confidentiality considerations.) If a model does not use external data, this element should nevertheless be included,
+using the statement: "The model does not use input data to represent time-varying processes." Note that 'Input data' does not refer to
+parameter values or initial values of state variables.
+
+
+## 7. Submodels
+
+**Questions:** What, in detail, are the submodels that represent the processes listed in ‘Process overview and scheduling’? What are
+the model parameters, their dimensions, and reference values? How were submodels designed or chosen, and how were they parameterized
+and then tested?
+
+**Answer:** ...
+
+**Explanation:** The submodels are presented in detail and completely. The factual description of the submodel, i.e., equation(s) and
+algorithms, should come first and be clearly separated from additional information. From what previous model this submodel was taken or
+whether a new submodel was formulated, and why, can be explained. If parameterization is not discussed outside the ODD description, it
+can be included here. The parameter definitions, units, and values used (if relevant) should be presented in tables.
+
+Any description of an ABM and its submodels will seem ad hoc and lack credibility if there is no justification for why and how
+formulations were chosen or how new formulations were designed and tested. Because agent-based modeling is new and lacks a firm
+foundation of theory and established methods, we expect ODD descriptions to include appropriate levels of explanation and justification
+for the design decisions they illustrate, though this should not interfere with the primary aim of giving a concise and readable account
+of the model. Justification can be very brief in the Overview and Design concepts sections, but the complete description of submodels is
+likely to include references to relevant literature, as well as independent implementation, testing, calibration, and analysis of
+submodels.
+
+ODD-based model descriptions consist of the seven elements described above; however, in most cases it will be necessary to have a
+simulation experiments or model analysis section following the model description (see Discussion).
