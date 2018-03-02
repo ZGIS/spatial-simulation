@@ -1,4 +1,5 @@
 # Supplement 2
+
 Grimm V, Berger U, DeAngelis DL, Polhill JG, Giske J, Railsback SF: "The ODD protocol: a review and first update"
 This supplement can be used as a template for writing ODD model descriptions. It contains Section 3 of the manuscript.
 After reading the explanations and typing the answers to the question, ODD users should have a clear and complete ODD
@@ -8,12 +9,16 @@ then.
 You can find the ODD publication at https://doi.org/10.1016/j.ecolmodel.2010.08.019. More information can be found
 at the [UFZ](http://www.ufz.de/index.php?de=40429) or [principal author's website](http://www.ufz.de/index.php?en=36522).
 
-# ODD Template 
+# ODD Template
+
 The model description follows the ODD (Overview, Design concepts, Details) protocol for describing individual- and
 agent-based models [Grimm et al. 2006, 2010](https://doi.org/10.1016/j.ecolmodel.2010.08.019). 
 
-##1. Purpose
+
+## 1. Purpose
+
 **Question:** What is the purpose of the model?
+
 **Answer:** ... 
 
 **Explanation:** Every model has to start from a clear question, problem, or hypothesis. Therefore, ODD starts with a
@@ -24,7 +29,9 @@ understandable by itself and not only in connection with the whole publication (
 tables and their legends). If one of the purposes of a model is to expand from basic principles to richer representation
 of real-world scenarios, this should be stated explicitly.
 
-##2. Entities, state variables, and scales
+
+## 2. Entities, state variables, and scales
+
 **Questions:** What kinds of entities are in the model? By what state variables, or attributes, are these entities
 characterized? What are the temporal and spatial resolutions and extents of the model?
 
@@ -38,9 +45,11 @@ spatial coordinates or which grid cell the entity is in, model parameters charac
 (e.g., species), and behavioral strategies. The entities of an ABM are thus characterized by a set, or vector
 (Chambers, 1993; Huse et al., 2002), of attributes, which can contain both numerical variables and references to
 behavioral strategies.
+
 One way to define entities and state variables is the following: if you want (as modelers often do) to stop the model
 and save it in its current state, so it can be re-started later in exactly the same state, what kinds of information must
 you save?
+
 If state variables have units, they should be provided. State variables can change in the course of time (e.g. weight)
 or remain constant (e.g. sex, species-specific parameters, location of a non-mobile entity). State variables should be
 low level or elementary in the sense that they cannot be calculated from other state variables. For example, if farmers
@@ -78,7 +87,9 @@ important to specify what the model’s units represent in reality. For example:
 simulations were run for 100 years. One grid cell represents 1 ha and the model landscape comprised 1,000 x 1,000 ha;
 i.e., 10,000 square kilometers”.
 
-##3. Process overview and scheduling
+
+## 3. Process overview and scheduling
+
 **Questions:** Who (i.e., what entity) does what, and in what order? When are state variables updated? How is time modeled,
 as discrete steps or as a continuum over which both continuous processes and discrete events can occur? Except for very
 simple schedules, one should use pseudo-code to describe the schedule in every detail, so that the model can be
@@ -90,7 +101,9 @@ implementing the ABM.
 **Explanation:** The “does what?” in the first question refers to the model’s processes. In this ODD element only the self-explanatory names of the model’s processes should be listed: ‘update habitat’, ‘move’, ‘grow’, ‘buy’, ‘update plots’, etc. These names are then the titles of the submodels that are described in the last ODD element, ‘Submodels’. Processes are performed either by one of the model’s entities (for example: ‘move’), or by a higher-level controller that does things such as updating plots or writing output to files. To handle such higher-level processes, ABM software platforms like Swarm (Minar et al., 1996) and NetLogo (Wilensky, 1999) include the concept of the ‘Model’, or ‘Observer’, itself; that is, a controller object that performs such processes. 
 By “in what order?” we refer to both the order in which the different processes are executed and the order in which a process is performed by a set of agents. For example, feeding may be a process executed by all the animal agents in a model, but we must also specify the order in which the individual animals feed; that is, whether they feed in random order, or fixed order, or size-sorted order. Differences in such ordering can have a very large effect on model outputs (Bigbee et al., 2006; Caron-Lormier et al., 2008). 
 The question of when variables are updated includes the question of whether a state variable is immediately assigned a new value as soon as that value is calculated by a process (asynchronous updating), or whether the new value is stored until all agents have executed the process, and then all are updated at once (synchronous updating). Most ABMs represent time simply by using time steps: assuming that time moves forward in chunks. But time can be represented in other ways (Grimm and Railsback, 2005, Chapter 5). Defining a model’s schedule includes stating how time is modeled, if it is not clear from the ‘Entities, State Variables, and Scales’ element.
-4. Design concepts
+
+
+## 4. Design concepts
 Questions: There are eleven design concepts. Most of these were discussed extensively by Railsback (2001) and Grimm and Railsback (2005; Chapter. 5), and are summarized here via the following questions:  
 Basic principles. Which general concepts, theories, hypotheses, or modeling approaches are underlying the model’s design? Explain the relationship between these basic principles, the complexity expanded in this model, and the purpose of the study. How were they taken into account? Are they used at the level of submodels (e.g., decisions on land use, or foraging theory), or is their scope the system level (e.g., intermediate disturbance hypotheses)? Will the model provide insights about the basic principles themselves, i.e. their scope, their usefulness in real-world scenarios, validation, or modification (Grimm, 1999)? Does the model use new, or previously developed, theory for agent traits from which system dynamics emerge (e.g., ‘individual-based theory’ as described by Grimm and Railsback [2005; Grimm et al., 2005])?
 Answer: ... 
