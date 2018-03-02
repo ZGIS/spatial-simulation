@@ -98,14 +98,40 @@ implementing the ABM.
 
 **Answer:** ...
  
-**Explanation:** The “does what?” in the first question refers to the model’s processes. In this ODD element only the self-explanatory names of the model’s processes should be listed: ‘update habitat’, ‘move’, ‘grow’, ‘buy’, ‘update plots’, etc. These names are then the titles of the submodels that are described in the last ODD element, ‘Submodels’. Processes are performed either by one of the model’s entities (for example: ‘move’), or by a higher-level controller that does things such as updating plots or writing output to files. To handle such higher-level processes, ABM software platforms like Swarm (Minar et al., 1996) and NetLogo (Wilensky, 1999) include the concept of the ‘Model’, or ‘Observer’, itself; that is, a controller object that performs such processes. 
-By “in what order?” we refer to both the order in which the different processes are executed and the order in which a process is performed by a set of agents. For example, feeding may be a process executed by all the animal agents in a model, but we must also specify the order in which the individual animals feed; that is, whether they feed in random order, or fixed order, or size-sorted order. Differences in such ordering can have a very large effect on model outputs (Bigbee et al., 2006; Caron-Lormier et al., 2008). 
-The question of when variables are updated includes the question of whether a state variable is immediately assigned a new value as soon as that value is calculated by a process (asynchronous updating), or whether the new value is stored until all agents have executed the process, and then all are updated at once (synchronous updating). Most ABMs represent time simply by using time steps: assuming that time moves forward in chunks. But time can be represented in other ways (Grimm and Railsback, 2005, Chapter 5). Defining a model’s schedule includes stating how time is modeled, if it is not clear from the ‘Entities, State Variables, and Scales’ element.
+**Explanation:** The "does what?" in the first question refers to the model's processes. In this ODD element only the
+self-explanatory names of the model’s processes should be listed: ‘update habitat’, ‘move’, ‘grow’, ‘buy’, ‘update plots’,
+etc. These names are then the titles of the submodels that are described in the last ODD element, ‘Submodels’. Processes
+are performed either by one of the model’s entities (for example: ‘move’), or by a higher-level controller that does things
+such as updating plots or writing output to files. To handle such higher-level processes, ABM software platforms like Swarm
+(Minar et al., 1996) and NetLogo (Wilensky, 1999) include the concept of the ‘Model’, or ‘Observer’, itself; that is, a
+controller object that performs such processes.
+
+By "in what order?" we refer to both the order in which the different processes are executed and the order in which a process
+is performed by a set of agents. For example, feeding may be a process executed by all the animal agents in a model, but we
+must also specify the order in which the individual animals feed; that is, whether they feed in random order, or fixed order,
+or size-sorted order. Differences in such ordering can have a very large effect on model outputs (Bigbee et al., 2006;
+Caron-Lormier et al., 2008).
+
+The question of when variables are updated includes the question of whether a state variable is immediately assigned a new
+value as soon as that value is calculated by a process (asynchronous updating), or whether the new value is stored until all
+agents have executed the process, and then all are updated at once (synchronous updating). Most ABMs represent time simply by
+using time steps: assuming that time moves forward in chunks. But time can be represented in other ways (Grimm and Railsback,
+2005, Chapter 5). Defining a model’s schedule includes stating how time is modeled, if it is not clear from the ‘Entities,
+State Variables, and Scales’ element.
 
 
 ## 4. Design concepts
-Questions: There are eleven design concepts. Most of these were discussed extensively by Railsback (2001) and Grimm and Railsback (2005; Chapter. 5), and are summarized here via the following questions:  
-Basic principles. Which general concepts, theories, hypotheses, or modeling approaches are underlying the model’s design? Explain the relationship between these basic principles, the complexity expanded in this model, and the purpose of the study. How were they taken into account? Are they used at the level of submodels (e.g., decisions on land use, or foraging theory), or is their scope the system level (e.g., intermediate disturbance hypotheses)? Will the model provide insights about the basic principles themselves, i.e. their scope, their usefulness in real-world scenarios, validation, or modification (Grimm, 1999)? Does the model use new, or previously developed, theory for agent traits from which system dynamics emerge (e.g., ‘individual-based theory’ as described by Grimm and Railsback [2005; Grimm et al., 2005])?
+
+**Questions:** There are eleven design concepts. Most of these were discussed extensively by Railsback (2001) and Grimm and
+Railsback (2005; Chapter. 5), and are summarized here via the following questions:  
+Basic principles. Which general concepts, theories, hypotheses, or modeling approaches are underlying the model’s design?
+Explain the relationship between these basic principles, the complexity expanded in this model, and the purpose of the study.
+How were they taken into account? Are they used at the level of submodels (e.g., decisions on land use, or foraging theory), or
+is their scope the system level (e.g., intermediate disturbance hypotheses)? Will the model provide insights about the basic
+principles themselves, i.e. their scope, their usefulness in real-world scenarios, validation, or modification (Grimm, 1999)?
+Does the model use new, or previously developed, theory for agent traits from which system dynamics emerge (e.g.,
+‘individual-based theory’ as described by Grimm and Railsback [2005; Grimm et al., 2005])?
+
 Answer: ... 
 Emergence. What key results or outputs of the model are modeled as emerging from the adaptive traits, or behaviors, of individuals? In other words, what model results are expected to vary in complex and perhaps unpredictable ways when particular characteristics of individuals or their environment change? Are there other results that are more tightly imposed by model rules and hence less dependent on what individuals do, and hence ‘built in’ rather than emergent results? 
 Answer: ... 
