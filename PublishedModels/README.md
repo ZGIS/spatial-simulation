@@ -9,4 +9,4 @@
 [license-badge]: https://img.shields.io/badge/License-Apache%202-blue.svg?style=flat-square
 [license-url]: LICENSE
 
-Here you can find models that are part of publications by members of the Spatial Simulation research group at Z_GIS. Also visit openABM: www.openabm.org
+Here you can find models that are part of publications by members of the Spatial Simulation research group at Z_GIS. Also visit ComSES / openABM: www.openabm.org
