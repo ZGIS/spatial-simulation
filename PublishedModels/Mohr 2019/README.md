@@ -30,7 +30,7 @@ The code of the model has also been published at the CoMSES / OpenABM network: h
 ## Introduction
 The Harz National Park offers with 813 km a well-developed path network as well as a high number of starting and destination points (POIs) for hikes, and was visited by some 1.7 million visitors in 2014. Due to its large extent, an accurate measurement of visitor numbers and their spatiotemporal distribution is not feasible. This work demonstrates the possibility to simulate the streams of visitors around Mt. Brocken with the agent-based model (ABM) methodology. The GAMA v1.7 RC2 modelling environment was chosen, because it has very extensive spatial operators and simulation tasks, combined with an easy-to-understand modelling language. To reduce the simulation effort, a model reduction factor MRF = 10 was tested successfully and used without any significant change to the model. After an initial parameterization, a sensitivity analysis was conducted with the results included in the final calibration. The observed error value could be significantly reduced from RMSE_Param=0,3817 to RMSE_Kalib=0,1069 and therefore the model was successfully adapted to the study area. For the final validation visitor numbers from other, independent investigations were used. Besides the identified 12 main routes and 7 hotspots not only basic socioeconomic indicators were provided, but also the change of behaviour of hikers following a variation of framework conditions was analyzed, thus demonstrating the impact of currently implemented measures to reduce path density. The final result is a flexible and expandable baseline model, which provides a realistic picture of the spatial distribution of hikers in the study area and additional socioeconomic key figures.
 
-![Study area for the ABM](https://github.com/nordie69/ABM-for-Socio-Economic-Monitoring-of-Visitor-Streams-in-Harz-NP/blob/main/figures/Fig3_Study_area.jpg "Study area for the ABM")
+![Study area for the ABM](https://github.com/ZGIS/spatial-simulation/blob/master/PublishedModels/Mohr%202019/figures/Fig3_Study_area.jpg "Study area for the ABM")
 
 *Figure 1: Study area Harz National Park for this ABM*
 
@@ -47,14 +47,14 @@ The data for the structure of the study area is in the form of shapefiles. The s
 ## Process overview and scheduling
 The structure of the model is shown in Figure 2. It is divided into the main areas of initialization, daily cycle[run?] and completion. The daily run is repeated until the desired simulation year has ended.
 
-![Flowchart of the model](https://github.com/nordie69/ABM-for-Socio-Economic-Monitoring-of-Visitor-Streams-in-Harz-NP/blob/main/figures/Fig4_Flowchart.jpg "Flowchart of the model") 
+![Flowchart of the model](https://github.com/ZGIS/spatial-simulation/blob/master/PublishedModels/Mohr%202019/figures/Fig4_Flowchart.jpg "Flowchart of the model") 
 
 *Figure 2: Flowchart of the model*
 
 ## Basic principles
 Figure 3 shows an Entity Relationship Diagram (ERD) to illustrate the relationships between the individual entities. Some entities serve the same purpose, so they can be grouped into scopes.
 
-![ERD illustrating the relationships between the entities](https://github.com/nordie69/ABM-for-Socio-Economic-Monitoring-of-Visitor-Streams-in-Harz-NP/blob/main/figures/Fig5_ERD.jpg "ERD illustrating the relationships between the entities") 
+![ERD illustrating the relationships between the entities](https://github.com/ZGIS/spatial-simulation/blob/master/PublishedModels/Mohr%202019/figures/Fig5_ERD.jpg "ERD illustrating the relationships between the entities") 
  
 *Figure 3: ERD illustrating the relationships between the entities*
 
@@ -106,13 +106,13 @@ Additional values are required to load shapefiles with fixed entities, to contro
 ## Sub-models
 Hikers can adopt 7 different statuses. The status transitions are defined as in Figure 4. This sub-model (or state engine) is used for each individual travelling group. The route selection in the model is carried out by means of a Dijkstra shortest-path algorithm, which reflects the hikers’ use of maps, handheld GPS and other mobile devices. The division of the overall model into additional sub-models is typical for a structured programming language.
 
-![Sub-model of the state transitions of groups of hikers](https://github.com/nordie69/ABM-for-Socio-Economic-Monitoring-of-Visitor-Streams-in-Harz-NP/blob/main/figures/Fig6_State_diagram.jpg "Sub-model of the state transitions of groups of hikers") 
+![Sub-model of the state transitions of groups of hikers](https://github.com/ZGIS/spatial-simulation/blob/master/PublishedModels/Mohr%202019/figures/Fig6_State_diagram.jpg "Sub-model of the state transitions of groups of hikers") 
  
 *Figure 4: Sub-model of the state transitions of groups of hikers*
 
 # Example of results
 For the whole study area, the annual sum of visitors is 1,515,464, with a concentration of 561,702 (about 37.1%) at the Brocken. 389,613 people (about 69.4%) travel using the Brocken Railway, and 172,089 (about 30.6%) hike to the Brocken. Thus, there is a spatial concentration of visitors in the area around the Brocken in the central part of the study area, which can be examined in more detail (see Figure 5). This concentration is primarily in the Scharf-enstein, Torfhaus, Schierke and Hohne areas. Noticeable in this context is the area to the east of the Brocken, which receives a comparatively small number of visitors. One of the main causes is the difficulty for hikers of finding a suitable starting point, as this eastern area is furthest away from points of entry to the National Park.
 
-![Overall result of spatial distribution of hikers](https://github.com/nordie69/ABM-for-Socio-Economic-Monitoring-of-Visitor-Streams-in-Harz-NP/blob/main/figures/Fig7_Result_Overall_spatial_distribution.jpg "Overall result of spatial distrbution of hikers") 
+![Overall result of spatial distribution of hikers](https://github.com/ZGIS/spatial-simulation/blob/master/PublishedModels/Mohr%202019/figures/Fig7_Result_Overall_spatial_distribution.jpg "Overall result of spatial distrbution of hikers") 
 
 *Figure 4: Example of results: Overall result of spatial distributi*on of hikers*
