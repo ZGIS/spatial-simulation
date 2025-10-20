@@ -7,36 +7,36 @@
 
 model flocking
 
+//if torus is set to "true", boids are in an endless, wrapped world (leaving boids appear on the other side)
 global torus: false {
 
 	//  parameters
-	int number_of_fish <- 25 min: 3 max: 60; 	
+	int number_of_boids <- 25 min: 3 max: 60; 	
 	float min_separation <- 3.0  min: 0.1  max: 10.0 ;
 	int max_separate_turn <- 5 min: 0 max: 20;
 	int max_cohere_turn <- 5 min: 0 max: 20;
 	int max_align_turn <- 8 min: 0 max: 20;
 	float vision <- 30.0  min: 0.0  max: 70.0 ;	
-	geometry shape <- square(100);
 			
 	// initialise model
 	init {
-		// create and distribute fish
-		create fish number:number_of_fish;
+		// create and distribute boids
+		create boids number:number_of_boids;
 	}		
 } 
 	
 
 // declare agents, cells and their behaviour
-	//  fish agents
-	species fish skills: [ moving ] {
-		// fish attributes
-		float size <- 2.0;
+	//  boid agents
+	species boids skills: [ moving ] {
+		// boid attributes
+		float size <- speed;
 		rgb colour <- #black;
 		point my_destination ;
 	
 		// flocking variables
-	    list<fish> flockmates ; 	    
-	    fish nearest_neighbour;	
+	    list<boids> flockmates ; 	    
+	    boids nearest_neighbour;	
 	    float avg_head;
 	    float avg_twds_mates ;
 		
@@ -72,7 +72,7 @@ global torus: false {
 		
 		//flockmates are defined spatially, within a buffer of vision
 		action find_flockmates {
-	        flockmates <- ((fish overlapping (circle(vision))) - self);
+	        flockmates <- ((boids overlapping (circle(vision))) - self);
 		}
 		
 		//find nearest neighbour
@@ -102,7 +102,7 @@ global torus: false {
 	    	ask flockmates {
 	    		my_destination <- {location.x + cos(heading), location.y + sin(heading)};
 	    	}
-    		list<fish> flockmates_insideShape <- flockmates where (each.my_destination != nil);
+    		list<boids> flockmates_insideShape <- flockmates where (each.my_destination != nil);
     		float x_component <- sum (flockmates_insideShape collect (each.my_destination.x - each.location.x));
     		float y_component <- sum (flockmates_insideShape collect (each.my_destination.y - each.location.y));
     		//if the flockmates vector is null, return my own, current heading
@@ -164,22 +164,16 @@ global torus: false {
 	    	} 
 	    }
 	    
-	    // fish visualisation settings
+	    // boids visualisation settings
+	
 		// default arrow
 		aspect arrow {
-     		draw line([location, {location.x - size * cos(heading), location.y - size * sin(heading)}]) begin_arrow: 1 color: colour;
-		}
-	
-		// alternative arrow
-		aspect arrow2 {
-			if (my_destination != nil) {
-				draw line([location, my_destination]) end_arrow: 2 color: colour;
-			}
-		}
+     		draw line([location, {location.x + cos(heading), location.y + sin(heading)}]) end_arrow: speed color: #black;
+		}		
 		
 		// additional vision buffer 
 		aspect buffer {
-     		draw location + circle (vision) color: colour ;
+     		draw location + circle (vision) color: #green ;
 		}
 	}
   
@@ -188,7 +182,7 @@ global torus: false {
 experiment simulation type:gui {
 	
 	//user defined parameters
-	parameter 'iniatial number of animals' var: number_of_fish;
+	parameter 'iniatial number of animals' var: number_of_boids;
 	parameter 'Max cohesion turn' var: max_cohere_turn ;
 	parameter 'Max alignment turn' var:  max_align_turn; 
 	parameter 'Max separation turn' var: max_separate_turn;
@@ -197,10 +191,10 @@ experiment simulation type:gui {
 	 
 	output {	
 		// map
-		display map  {
-			species fish aspect: arrow;	
-			//species fish aspect: buffer transparency:0.8;
+		display map  {	
+			//to visualise the vision buffer. Can be added optionally
+			//species boids aspect: buffer transparency:0.9;
+			species boids aspect: arrow;
 		}
 	}
 }
-
